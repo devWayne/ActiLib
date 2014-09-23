@@ -1,5 +1,5 @@
-language: node_js
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# http://docs.travis-ci.com
 node_js:
-  - '0.10'
-before_install:
-  - gem install sass
+  - "0.10"
