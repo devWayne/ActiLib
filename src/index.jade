@@ -1,0 +1,28 @@
+doctype html
+html.no-js(lang="")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible",content="IE=edge")
+        title ActiLib
+        meta(name="description",content="")
+        meta(name="viewport",content="width=device-width, initial-scale=1")
+        link(rel="stylesheet",href="css/normalize.css")
+        link(rel="stylesheet",href="css/main.css")
+        script(src="js/vendor/modernizr-2.8.3.min.js")
+    body
+        div#lead.headline
+            h1 ACTILIB DEMO
+            a.waves-effect.waves-button Click Here
+        a.github-ribbon(href="https://github.com/devWayne/ActiLib",target="_blank")
+            img(style="position: fixed; top: 0; right: 0; border: 0;",src="img/github-icon.png",alt="Fork me on GitHub")
+        div.main
+            ul
+                li
+                    div.box.colored-box.waves-effect.waves-light.waves-block.unit-block Colored Box
+                    div.box.raised-box.waves-effect.waves-float.waves-block.unit-block Raised Box
+                    div.box.raised-box.waves-effect.waves-float.waves-block.unit-block Raised Box
+        script window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
+        script(src="js/plugins.js")
+        script(src="js/main.js")
+        script(src="js/waves.js")
+        script Waves.displayEffect();

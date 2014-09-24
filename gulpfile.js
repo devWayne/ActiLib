@@ -5,8 +5,8 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')(); // Load all gulp plugins
                                               // automatically and attach
 var less = require('gulp-less');
-//var jade = require('gulp-jade');                                            // them to the `plugins` object
 
+var jade = require('gulp-jade');
 var runSequence = require('run-sequence');    // Temporary solution until gulp 4
                                               // https://github.com/gulpjs/gulp/issues/355
 var template = require('lodash').template;
@@ -80,7 +80,8 @@ gulp.task('copy:.htaccess', function () {
 });
 
 gulp.task('copy:index.html', function () {
-    return gulp.src(template('<%= src %>/index.html', dirs))
+    return gulp.src(template('<%= src %>/index.jade', dirs))
+               .pipe(jade())
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(gulp.dest(template('<%= dist %>', dirs)));
 });
@@ -97,7 +98,7 @@ gulp.task('copy:main.css', function () {
                     ' | ' + pkg.license.type + ' License' +
                     ' | ' + pkg.homepage + ' */\n\n';
 
-    return gulp.src(template('<%= src %>/css/main.less', dirs))
+    return gulp.src(template('<%= src %>/less/main.less', dirs))
                .pipe(less())
                .pipe(plugins.header(banner))
                .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
@@ -112,8 +113,9 @@ gulp.task('copy:misc', function () {
 
         // Exclude the following files
         // (other tasks will handle the copying of these files)
-        template('!<%= src %>/css/main.less', dirs),
-        template('!<%= src %>/index.html', dirs)
+        template('!<%= src %>/less/*.less', dirs),
+        template('!<%= src %>/jade/*.jade', dirs),
+        template('!<%= src %>/index.jade', dirs)
 
     ], {
 
@@ -135,6 +137,10 @@ gulp.task('jshint', function () {
     ]).pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
+});
+
+gulp.task('watch', function () {
+    gulp.watch([template('<%= src %>/less/*', dirs),template('<%= src %>/index.jade', dirs)], ['copy:main.css','copy:index.html']);
 });
 
 
