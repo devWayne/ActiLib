@@ -68,9 +68,10 @@ gulp.task('copy', [
     'copy:.htaccess',
     'copy:index.html',
     'copy:jquery',
-    'copy:main.css',
     'copy:misc',
-    'copy:normalize'
+    'copy:normalize',
+    'compile:main.less',
+    'compile:jade'
 ]);
 
 gulp.task('copy:.htaccess', function () {
@@ -92,7 +93,7 @@ gulp.task('copy:jquery', function () {
                .pipe(gulp.dest(template('<%= dist %>/js/vendor', dirs)));
 });
 
-gulp.task('copy:main.css', function () {
+gulp.task('compile:main.less', function () {
 
     var banner = '/*! HTML5 Boilerplate v' + pkg.version +
                     ' | ' + pkg.license.type + ' License' +
@@ -102,6 +103,13 @@ gulp.task('copy:main.css', function () {
                .pipe(less())
                .pipe(plugins.header(banner))
                .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
+
+});
+
+gulp.task('compile:jade', function () {
+    return gulp.src(template('<%= src %>/jade/*.jade', dirs))
+               .pipe(jade())
+               .pipe(gulp.dest(template('<%= dist %>/html', dirs)));
 
 });
 
@@ -158,7 +166,7 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['clean', 'jshint'],
+        ['clean'],
         'copy',
     done);
 });

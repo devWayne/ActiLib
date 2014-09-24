@@ -8,21 +8,79 @@ html.no-js(lang="")
         meta(name="viewport",content="width=device-width, initial-scale=1")
         link(rel="stylesheet",href="css/normalize.css")
         link(rel="stylesheet",href="css/main.css")
+        link(href="css/animate.min.css",rel="stylesheet",type="text/css")
         script(src="js/vendor/modernizr-2.8.3.min.js")
     body
         div#lead.headline
             h1 ACTILIB DEMO
             a.waves-effect.waves-button Click Here
+
+        div#header.header
+             nav#nav
+                     ul.nav.navbar-nav
+                             li
+                                 a(href="#home") Home
+                             li
+                                 a(href="#about") About
+                             li
+                                 a(href="#services") Services
+                             li
+                                 a(href="#contact") Contact
         a.github-ribbon(href="https://github.com/devWayne/ActiLib",target="_blank")
-            img(style="position: fixed; top: 0; right: 0; border: 0;",src="img/github-icon.png",alt="Fork me on GitHub")
+            img(style="position: fixed; top: 0; right: 0; border: 0;z-index:9999",src="img/github-icon.png",alt="Fork me on GitHub")
         div.main
             ul
+                li  
+                    div.unit-headtype1 Type1 
                 li
-                    div.box.colored-box.waves-effect.waves-light.waves-block.unit-block Colored Box
-                    div.box.raised-box.waves-effect.waves-float.waves-block.unit-block Raised Box
-                    div.box.raised-box.waves-effect.waves-float.waves-block.unit-block Raised Box
+                    div.waves-effect.waves-light.waves-block.unit-blocktype1
+                        a(href="html/demo.html")
+                            p.head Colored Box
+                            p.body text demotext demotext demotext demotext demoemotext demoemotext
+                    div.waves-effect.waves-light.waves-block.unit-blocktype1
+                        a(href="http://www.baidu.com")
+                            p.head Colored Box
+                            p.body text demotext demotext demotext demotext demoemotext demoemotext
+                    div.waves-effect.waves-light.waves-block.unit-blocktype1
+                        a(href="http://www.baidu.com")
+                            p.head Colored Box
+                            p.body text demotext demotext demotext demotext demoemotext demoemotext
+                    div.clear
+                li  
+                    div.unit-headtype2 Type1 
+                li
+                    div.waves-effect.waves-light.waves-block.unit-blocktype2
+                        a(href="http://www.baidu.com")
+                            p.head Colored Box
+                            p.body text demotext demotext demotext demotext demoemotext demoemotext
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype2 
+                        p Raised Box
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype2 
+                        p Raised Box
+                    div.clear
+                li  
+                    div.unit-headtype3 Type1 
+                li
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype3
+                        p Colored Box
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype3
+                        p Raised Box
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype3
+                        p Raised Box
+                    div.clear
+                li  
+                    div.unit-headtype4 Type1 
+                li
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype4
+                        p Colored Box
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype4 
+                        p Raised Box
+                    a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype4
+                        p Raised Box
+                    div.clear
         script window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
         script(src="js/plugins.js")
-        script(src="js/main.js")
         script(src="js/waves.js")
+        script(src="js/stickup.js")
+        script(src="js/main.js")
         script Waves.displayEffect();
