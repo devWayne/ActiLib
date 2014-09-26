@@ -6,13 +6,14 @@ html.no-js(lang="")
         title ActiLib
         meta(name="description",content="")
         meta(name="viewport",content="width=device-width, initial-scale=1")
-        link(rel="stylesheet",href="css/normalize.css")
-        link(rel="stylesheet",href="css/main.css")
-        link(href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css",rel="stylesheet",type="text/css")
-        script(src="js/vendor/modernizr-2.8.3.min.js")
+        link(rel="stylesheet",href="../css/normalize.css")
+        link(rel="stylesheet",href="../css/style.css")
+        script(src="../js/vendor/modernizr-2.8.3.min.js")
     body
-        div#lead.headline
-            h1 ACTILIB DEMO
-            a.waves-effect.waves-button Click Here
-        script window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
+        div.fixed-head
+            a(href="../index.html") ACTILIB
+        div.main        
+            p.title demo
+            p.sub-title usage
+        script window.jQuery || document.write('<script src="../js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
  

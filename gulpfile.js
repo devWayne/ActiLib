@@ -66,11 +66,11 @@ gulp.task('clean', function (done) {
 
 gulp.task('copy', [
     'copy:.htaccess',
-    'copy:index.html',
     'copy:jquery',
     'copy:misc',
     'copy:normalize',
-    'compile:main.less',
+    'compile:less',
+    'compile:index.jade',
     'compile:jade'
 ]);
 
@@ -80,7 +80,7 @@ gulp.task('copy:.htaccess', function () {
                .pipe(gulp.dest(template('<%= dist %>', dirs)));
 });
 
-gulp.task('copy:index.html', function () {
+gulp.task('compile:index.jade', function () {
     return gulp.src(template('<%= src %>/index.jade', dirs))
                .pipe(jade())
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
@@ -93,13 +93,13 @@ gulp.task('copy:jquery', function () {
                .pipe(gulp.dest(template('<%= dist %>/js/vendor', dirs)));
 });
 
-gulp.task('compile:main.less', function () {
+gulp.task('compile:less', function () {
 
-    var banner = '/*! HTML5 Boilerplate v' + pkg.version +
+    var banner = '/*! ActiLib v' + pkg.version +
                     ' | ' + pkg.license.type + ' License' +
                     ' | ' + pkg.homepage + ' */\n\n';
 
-    return gulp.src(template('<%= src %>/less/main.less', dirs))
+    return gulp.src(template('<%= src %>/less/*.less', dirs))
                .pipe(less())
                .pipe(plugins.header(banner))
                .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
@@ -109,6 +109,7 @@ gulp.task('compile:main.less', function () {
 gulp.task('compile:jade', function () {
     return gulp.src(template('<%= src %>/jade/*.jade', dirs))
                .pipe(jade())
+               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(gulp.dest(template('<%= dist %>/html', dirs)));
 
 });
@@ -148,7 +149,7 @@ gulp.task('jshint', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch([template('<%= src %>/less/*', dirs),template('<%= src %>/index.jade', dirs)], ['copy:main.css','copy:index.html']);
+    gulp.watch([template('<%= src %>/less/*', dirs),template('<%= src %>/index.jade', dirs),template('<%= src %>/jade/*', dirs)], ['compile:less','compile:jade','compile:index.jade']);
 });
 
 

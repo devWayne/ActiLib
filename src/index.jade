@@ -11,27 +11,27 @@ html.no-js(lang="")
         link(href="css/animate.min.css",rel="stylesheet",type="text/css")
         script(src="js/vendor/modernizr-2.8.3.min.js")
     body
-        div#lead.headline
+        div#lead
             h1 ACTILIB DEMO
-            a.waves-effect.waves-button Click Here
+            a.waves-effect.waves-button#docs Click Here
 
         div#header.header
              nav#nav
                      ul.nav.navbar-nav
                              li
-                                 a(href="#home") Home
+                                 a(href="#type1").waves-effect.waves-button Home
                              li
-                                 a(href="#about") About
+                                 a(href="#type2").waves-effect.waves-button About
                              li
-                                 a(href="#services") Services
+                                 a(href="#type3").waves-effect.waves-button Services
                              li
-                                 a(href="#contact") Contact
+                                 a(href="#type4").waves-effect.waves-button Contact
         a.github-ribbon(href="https://github.com/devWayne/ActiLib",target="_blank")
             img(style="position: fixed; top: 0; right: 0; border: 0;z-index:9999",src="img/github-icon.png",alt="Fork me on GitHub")
         div.main
             ul
                 li  
-                    div.unit-headtype1 Type1 
+                    div.unit-headtype1.scrollto#type1 Type1 
                 li
                     div.waves-effect.waves-light.waves-block.unit-blocktype1
                         a(href="html/demo.html")
@@ -47,7 +47,7 @@ html.no-js(lang="")
                             p.body text demotext demotext demotext demotext demoemotext demoemotext
                     div.clear
                 li  
-                    div.unit-headtype2 Type1 
+                    div.unit-headtype2.scrollto#type2 Type2
                 li
                     div.waves-effect.waves-light.waves-block.unit-blocktype2
                         a(href="http://www.baidu.com")
@@ -59,7 +59,7 @@ html.no-js(lang="")
                         p Raised Box
                     div.clear
                 li  
-                    div.unit-headtype3 Type1 
+                    div.unit-headtype3.scrollto#type3 Type3 
                 li
                     a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype3
                         p Colored Box
@@ -69,7 +69,7 @@ html.no-js(lang="")
                         p Raised Box
                     div.clear
                 li  
-                    div.unit-headtype4 Type1 
+                    div.unit-headtype4.scrollto#type4 Type4
                 li
                     a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype4
                         p Colored Box
@@ -78,9 +78,11 @@ html.no-js(lang="")
                     a(href="http://www.baidu.com").waves-effect.waves-light.waves-block.unit-blocktype4
                         p Raised Box
                     div.clear
+        div#end
+            h1 ACTILIB DEMO
         script window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
         script(src="js/plugins.js")
         script(src="js/waves.js")
-        script(src="js/stickup.js")
+        script(src="js/stickyNavbar.js")
         script(src="js/main.js")
         script Waves.displayEffect();
